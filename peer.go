@@ -6,7 +6,7 @@ import "C"
 // Peer is a peer which data packets may be sent or received from
 type Peer interface {
 	GetAddress() Address
-
+	GetIncomingPeerID() uint16
 	Disconnect(data uint32)
 	DisconnectNow(data uint32)
 	DisconnectLater(data uint32)
@@ -24,6 +24,10 @@ func (peer enetPeer) GetAddress() Address {
 	return &enetAddress{
 		cAddr: peer.cPeer.address,
 	}
+}
+
+func (peer enetPeer) GetIncomingPeerID() unit16 {
+	return peer.cPeer.incomingPeerID
 }
 
 func (peer enetPeer) Disconnect(data uint32) {
