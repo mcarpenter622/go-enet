@@ -26,7 +26,7 @@ func (peer enetPeer) GetAddress() Address {
 	}
 }
 
-func (peer enetPeer) GetIncomingPeerID() unit16 {
+func (peer enetPeer) GetIncomingPeerID() uint16 {
 	return peer.cPeer.incomingPeerID
 }
 
